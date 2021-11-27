@@ -1,0 +1,50 @@
+<!doctype html>
+<body style="background-color: rgb(166, 201, 255);">
+<h1>Fitness!</h1>
+<h2>Calisthenics</h2>
+<h4>Calisthenics Stetches</h4>
+<h4>Calisthenics Workouts</h4>
+<p><li>Pullups</li>
+    <right>
+        <img src="{{url_for('static', filename='Pullup.gif')}}"
+        width="400"
+        height="200"/>
+    </right>
+    <li>Pushups</li>
+    <right>
+        <img src="{{url_for('static', filename='pushup.gif')}}"
+        width="400"
+        height="200"/>
+    </right>
+    <li>Dips</li>
+    <right>
+        <img src="{{url_for('static', filename='dips.gif')}}"
+        width="400"
+        height="200"
+        />
+    </right>
+    <li>Jumprope</li>
+    <img src="{{url_for('static', filename='jumprope.gif')}}"
+        width="400"
+        height="200"
+        />
+    <li>Squats</li>
+    <right>
+        <img src="{{url_for('static', filename='squats.jpg')}}"
+        width="400"
+        height="200"/>
+        
+    </right>
+    <li>Burpees</li>
+</p>
+<h4>Calisthenics Post workout</h4>
+<h2>Weight training</h2>
+</body>
+{% if Calisthenics %}
+<title>Fitness</title>
+<body style="background-color: rgb(159, 168, 123);">
+<h1>Calisthenics</h1>
+</body>
+{% else %} 
+<h1>Welcome to the Fitness page</h1>
+{% endif %}

@@ -1,0 +1,18 @@
+<!doctype html>
+<body style="background-color: rgb(166, 201, 255);">
+<h1>Programming!</h1>
+<img src="{{url_for('static', filename='codinglogo.jpg')}}"/>
+<h1 style="text-align: center;"><a href="http://127.0.0.1:5000/Education/Programming/ProgrammingTutorials">Programming Tutorials</a></h1>
+<h1 style="text-align: center;"><a href="http://127.0.0.1:5000/Education/Programming/ProgrammingNews">Programming News</a></h1>
+</body>
+{% if ProgrammingTutorials %}
+<h1>Welcome to programming tutorials!</h1>
+<h4>C++ tutorial</h4>
+<h4>Java tutorial</h4>
+<h4>Python tutorial</h4>
+<h4>C# tutorial</h4>
+<body style="background-color: rgb(159, 168, 123);">
+</body>
+{% else %}
+
+{% endif %}

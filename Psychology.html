@@ -1,0 +1,37 @@
+<!doctype html>
+<body style="background-color: rgb(233, 233, 233);">
+<h1>Welcome to the Psychology page!</h1>
+<title>Psychology</title>
+<h2>What is Psychology?</h2>
+<p>Psychology is the scientific study of the mind and behavior.
+Psychologists are actively involved in studying and understanding mental processes, brain functions, and behavior.
+</p>
+<h2>Cognitive Psychology</h2>
+<p><li>Cognitive Psychology is the study of internal mental processes.
+    Including perception, thinking, memory, attention, langauge, problem-solving, and learning.</li>
+</p>
+<h2>Behavioral Psychology</h2>
+<p><li>the study and analysis of obervable behavior.</li></p>
+<h2>Social Psychology</h2>
+<h2>Developmental Psychology</h2>
+<h2>Clinical Psychology</h2>
+<right>
+<img src="{{url_for('static', filename='PsychologyImage1.jpg')}}"/>
+<img src="{{url_for('static', filename='FreudImage.jpg')}}"/>
+</right>
+<form method="POST" action="">
+    <center>
+        <h1>Enter your details</h1>
+        First Name <input type = "text" name="fname" /> <br>
+        Last Name <input type = "text" name="lname" /> <br>
+        <input type = "submit">
+    </center>
+</form>
+</body>
+{% if behaviorism %}
+<title>Behaviorism</title>
+<h1>Behaviorlism</h1>
+</body>
+{% else %}
+<h1>Welcome to the psychology page</h1>
+{% endif %}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title>This page will be about Fashion</title>
+{% if shoes %}
+<h1>Sneakers</h1>
+<img src="{{url_for('static', filename='air-jordan-4-bred-001.jpg')}}"/>
+<img src="{{url_for('static', filename='infared.jpg')}}"/>
+<img src="{{url_for('static', filename='mocha.jpg')}}"/>
+<img src="{{url_for('static', filename='royal.jpg')}}"/>
+<img src="{{url_for('static', filename='bordeaux.jpg')}}"/>
+<img src="{{url_for('static', filename='blackcementog.jpg')}}"/>
+{% else %}
+<h1>Hello, World!</h1>
+{% endif %}

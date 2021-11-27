@@ -1,0 +1,13 @@
+<!doctype html>
+<body style="background-color: rgb(233, 245, 126);">
+<h1>Cryptocurrency!</h1>
+<img src="{{url_for('static', filename='Cryptocurrency.jpg')}}"/>
+</body>
+{% if Bitcoin %}
+<title>Bitcoin</title>
+<body style="background-color: rgb(159, 168, 123);">
+<h1>Bitcoin</h1>
+</body>
+{% else %}
+<h1>Welcome to the Crypto page</h1>
+{% endif %}
