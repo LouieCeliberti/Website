@@ -7,10 +7,12 @@ Created on Sun Oct 31 12:23:13 2021
 # This application will be a website. This will teach me how to create and run a websitw in python ausing Flask
 
 ## Flask Code here 
+from crypt import methods
 from flask import Flask, flash, render_template, request
 #from flask_mysqldb import MySQL
 from flask import jsonify
-import mysql.connector
+#import chess
+#import mysql.connector
 app = Flask(__name__)  
 
 """app.config['MYSQL_HOST'] = 'Louies-MacBook-Pro.local'
@@ -76,10 +78,6 @@ def bmfunction():
 def foodFunction(resturants=None):
     return render_template('Food.html', resturants=resturants)
 
-@app.route("/Fashion/")
-@app.route("/Fashion/<shoes>")
-def fashionFunction(shoes=None):
-    return render_template('Fashion.html', shoes=shoes)
 
 @app.route("/Fitness/")
 @app.route("/Fitness/<Calisthetics>")
@@ -119,5 +117,88 @@ def economicsFunction(GDP=None):
     return render_template('Cryptocurrency.html', GDP=GDP)
 ### End of Educational functions ###
 
+### Beginning of Fashion page functoins: ####
+@app.route("/Fashion/")
+@app.route("/Fashion/<shoes>")
+def fashionshoeFunction(shoes=None):
+    return render_template('Fashion.html', shoes=shoes)
+
+@app.route("/Fashion/<jackets>")
+def fashionjacketsFunction(jackets=None):
+    return render_template('Fashion.html', jackets=jackets)
+
+@app.route("/Fashion/<pants>")
+def fashionpantsFunction(pants=None):
+    return render_template('Fashion.html', pants=pants)
+
+@app.route("/Fashion/<accessories>")
+def fashionaccessoriesFunction(accessories=None):
+    return render_template('Fashion.html', accessories=accessories)
+### End of Fashion functions ###  
+
+
+
+"""@app.route("/chess")
+def chessFunction():
+    board = chess.Board()
+    return board"""
+
+
+def fact(n):
+    if n == 1:
+        return n
+    else:
+        return n*fact(n-1)
+
+@app.route("/calculator",methods=['GET'])
+def calcFunction():
+    return render_template('Calculator.html')
+
+@app.route("/operation_result",methods=['POST'])
+def operation_result():
+    # request.form looks for html tags with mathcing "name = "
+    input_one = request.form['Input1']
+    input_two = request.form['Input2']
+    operation = request.form['Operation']
+    try:
+        first_input = int(input_one)
+        second_input = int(input_two)
+
+        if operation == "+":
+            result = first_input + second_input
+        elif operation == "-":
+            result = first_input - second_input
+        elif operation == "*":
+            result = first_input * second_input
+        elif operation == "/":
+            result = first_input / second_input
+        elif operation == "%":
+            result = first_input % second_input
+        elif operation == "!":
+            result = input_one*fact(input_one-1)
+        else:
+            result = fact(first_input)/(fact(second_input)*fact(first_input-second_input))
+        return render_template('Calculator.html',
+                                first_input=first_input,
+                                second_input=second_input,
+                                operation=operation,
+                                result=result,
+                                calculation_success=True)
+    except ZeroDivisionError:
+        return render_template('Calculator.html',
+                            first_input=first_input,
+                            second_input=second_input,
+                            operation=operation,
+                            result="Bad Input",
+                            calculation_success=False,
+                            error = "You cannot divide by zero")
+    except ValueError:
+        return render_template('Calculator.html',
+                            first_input=input_one,
+                            second_input=input_two,
+                            operation=operation,
+                            result="Bad Input",
+                            calculation_success=False)
+    
 if __name__ == "__main__":  
     app.run(debug=True)
