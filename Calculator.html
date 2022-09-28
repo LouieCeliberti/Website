@@ -1,0 +1,34 @@
+<!doctype html>
+<h1>Calculator</h1>
+<body style="background-color: #9a9fa5;"></body>
+<form method="POST" action="{{('operation_result') }}" id="calculator_form">
+    <label for="Input1">Input 1: </label>
+    <input type="text" name="Input1" id="Input1">
+    <br>
+    <label for="Input2">Input 2: </label>
+    <input type="text" name="Input2" id="Input2">
+    <br>
+    <label for="Operation">Operation:</label>
+    <select id="Operation" name="Operation">
+        <option value="+">Addition</option>
+        <option value="-">Subtraction</option>
+        <option value="*">Multiplication</option>
+        <option value="/">Division</option>
+        <option value="%">Modulus</option>
+        <option value="!">Factorial</option>
+        <option>Combination</option>
+    </select>
+    <br>
+    <input type="submit" value="submit">
+    <input type="reset" value="reset" style="color: red;">
+</form>
+{% if calculation_success == True %}
+    <br>
+    <p>{{first_input}} {{operation}} {{second_input}} = {{result}}</p>
+{% endif %}
+{% if calculation_success == False %}
+    <br>
+    <p>{{error}}</p>
+    <p>{{first_input}} {{operation}} {{second_input}} = {{result}}</p>
+{% endif %}
+</body>
